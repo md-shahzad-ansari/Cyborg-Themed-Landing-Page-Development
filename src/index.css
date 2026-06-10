@@ -1,0 +1,103 @@
+@import "tailwindcss";
+
+:root {
+  color-scheme: dark;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  min-width: 320px;
+  background: #05070c;
+  color: #e5eef9;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+::selection {
+  background: rgba(34, 211, 238, 0.3);
+  color: #ffffff;
+}
+
+.cyber-grid {
+  background-image:
+    linear-gradient(rgba(148, 163, 184, 0.08) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(148, 163, 184, 0.08) 1px, transparent 1px);
+  background-size: 72px 72px;
+  -webkit-mask-image: radial-gradient(circle at center, black 38%, transparent 82%);
+  mask-image: radial-gradient(circle at center, black 38%, transparent 82%);
+}
+
+.noise {
+  background-image: radial-gradient(rgba(255, 255, 255, 0.02) 1px, transparent 1px);
+  background-size: 3px 3px;
+  opacity: 0.4;
+  mix-blend-mode: soft-light;
+}
+
+.scanline {
+  background: linear-gradient(180deg, transparent, rgba(34, 211, 238, 0.52), transparent);
+  filter: blur(12px);
+}
+
+@keyframes float {
+  0%,
+  100% {
+    transform: translate3d(0, 0, 0);
+  }
+  50% {
+    transform: translate3d(0, -12px, 0);
+  }
+}
+
+@keyframes drift {
+  0% {
+    transform: translateX(-10%);
+  }
+  100% {
+    transform: translateX(10%);
+  }
+}
+
+@keyframes scan {
+  0% {
+    transform: translateY(-12%);
+  }
+  100% {
+    transform: translateY(112%);
+  }
+}
+
+@keyframes pulseGlow {
+  0%,
+  100% {
+    opacity: 0.55;
+  }
+  50% {
+    opacity: 0.95;
+  }
+}
+
+.float-slow {
+  animation: float 8s ease-in-out infinite;
+}
+
+.float-slower {
+  animation: float 12s ease-in-out infinite;
+}
+
+.drift {
+  animation: drift 18s ease-in-out infinite alternate;
+}
+
+.scan-rail {
+  animation: scan 7s linear infinite;
+}
+
+.pulse-glow {
+  animation: pulseGlow 5s ease-in-out infinite;
+}
